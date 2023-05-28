@@ -2,33 +2,35 @@
 
 > Full-Stack Angular-NodeJS. Simple using FE Angular and NodeJS as BE
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+## This is what we created:
 
-## Development server
+### Frontend (Angular Application): 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- We created a simple Angular application that includes a login form for users to enter their email and password. This form is handled by a LoginComponent, which uses an AuthService to send HTTP requests to the server.
 
-## Code scaffolding
+- The AuthService makes use of Angular's HttpClient to communicate with our server's API. We implemented both login and get user message functionality in this service, which corresponds to POST and GET requests to our server.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- The login method in the AuthService makes a POST request to the /api/login endpoint on our server, and the getUser method makes a GET request to the /api/user endpoint.
 
-## Build
+- The LoginComponent then uses these AuthService methods to handle form submission and fetch the user data. It displays a welcome message returned by the server upon a successful login.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Additionally, we created a MessageComponent to display a simple message fetched from the /api/message endpoint of our server.
 
-## Running unit tests
+## Backend (Node.js Server): 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- We created a simple Express server in Node.js. This server has two endpoints: /api/login and /api/user. The /api/login endpoint accepts POST requests and checks the provided credentials against a mock user data. It returns a response indicating whether the login was successful.
 
-## Running end-to-end tests
+- The /api/user endpoint accepts GET requests and returns a welcome message. In a real-world application, this endpoint could be used to fetch and return user-specific data.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- We also added a /api/message endpoint that returns a simple static message. This endpoint is used to demonstrate displaying data fetched from a server in an Angular component.
 
-## Further help
+- Integration of Frontend and Backend: Our Angular application and Node.js server communicate with each other over HTTP, allowing us to demonstrate a basic form of the Model-View-Controller (MVC) architecture where the server acts as the model and controller, and the Angular application acts as the view. The Angular application sends user data to the server and receives responses, displaying the received data and messages to the user.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> Please note that this is a very basic setup for demonstration purposes. In a real-world application, you would likely need to implement more advanced features such as data persistence with a database, password hashing for security, session management or JWT for keeping users logged in, error handling, form validation, and more.
 
-# Setup step-by-step
+---
+
+## Setup step-by-step
 
 ```js
 // FE
@@ -93,3 +95,33 @@ node server.ts
 curl -X POST -H "Content-Type: application/json" -d '{"email":"test@test.com", "password":"password"}' http://localhost:3000/api/login
 // {"success":true,"message":"Login successful!"}%     
 ```
+
+---
+
+## Usual Angular info here
+
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
