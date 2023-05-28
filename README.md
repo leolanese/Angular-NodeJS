@@ -1,6 +1,6 @@
 # NodeJS and Angular
 
-> Testing BE NodeJS API from FE Angular standalone components
+> Full-Stack Angular-NodeJS. Simple using FE Angular and NodeJS as BE
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
